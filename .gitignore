@@ -1,1 +1,73 @@
+## Build and packaging
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.app
+*.log
+
+## User- and machine-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.db
+*.cache
+
+## Visual Studio files
+.vs/
+.vscode/
+
+## Rider files
+.idea/
+
+## ASP.NET specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Entity Framework
+MigrationsSnapshot.cs
+
+## NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+.nuget/
+packages/
+*.props
+*.targets
+
+## Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+## Logs
+*.log
+*.tlog
+
+## Deployment artifacts
+.publish/
+*.deploy.*
+
+## Local environment
+.env
+secrets.json
+
+## OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+## Temporary
+*.tmp
+*.bak
+*.old
+*.orig
+
+## Others (adjust as needed)
+*.smh
 *.ini
