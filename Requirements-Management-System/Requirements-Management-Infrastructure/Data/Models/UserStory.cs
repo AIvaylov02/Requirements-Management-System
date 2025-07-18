@@ -1,5 +1,6 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
 
 namespace Requirements_Management_Infrastructure.Data.Models
@@ -23,9 +24,20 @@ namespace Requirements_Management_Infrastructure.Data.Models
         [MaxLength(USERSTORY_WISH_REASON_MAX_LENGTH)]
         public string Reason { get; set; } = null!;
 
+        [Required]
+        public int AuthorId { get; set; }
+
+        [ForeignKey(nameof(AuthorId))]
+        public User Author { get; set; } = null!;
+
+
         // NB - it is not of an interface, since we use TPT - we can go concrete here
-        ICollection<UserStoryComment> Comments { get; set; } = new List<UserStoryComment>();
+        public ICollection<UserStoryComment> Comments { get; set; } = new List<UserStoryComment>();
 
         // User story can be mapped to many projects - Mapping table between projects and user stories (then detach is possible)
+
+        public ICollection<UserStoryRequirement> UserStoryRequirements { get; set; } = new List<UserStoryRequirement>();
+
+        public ICollection<ProjectUserStory> UserStoryProjects { get; set; } = new List<ProjectUserStory>();
     }
 }

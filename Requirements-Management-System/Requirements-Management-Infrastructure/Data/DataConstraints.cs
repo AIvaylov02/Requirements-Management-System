@@ -7,5 +7,7 @@
 
         public const byte USERSTORY_PERSONA_MAX_LENGTH = 60;
         public const short USERSTORY_WISH_REASON_MAX_LENGTH = 500;
+
+        public const byte USER_NAME_LENGTH = 100;
     }
 }

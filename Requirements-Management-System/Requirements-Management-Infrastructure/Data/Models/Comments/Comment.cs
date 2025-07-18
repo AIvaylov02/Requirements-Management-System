@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
 
 namespace Requirements_Management_Infrastructure.Data.Models.Comments
@@ -9,7 +10,7 @@ namespace Requirements_Management_Infrastructure.Data.Models.Comments
 
     // To set up TPT we would use Fluent API
 
-    public abstract class ADTComment
+    public abstract class Comment
     {
         [Key]
         public int Id { get ; set ; }
@@ -21,8 +22,10 @@ namespace Requirements_Management_Infrastructure.Data.Models.Comments
         [Required]
         public string Content { get; set; } = null!;
 
+        [Required]
         public int AuthorId { get; set; }
 
-        // public User AuthorId { get; set; }
+        [ForeignKey(nameof(AuthorId))]
+        public User Author { get; set; } = null!;
     }
 }

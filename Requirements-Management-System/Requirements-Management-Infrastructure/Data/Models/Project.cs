@@ -1,5 +1,6 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
 
 namespace Requirements_Management_Infrastructure.Data.Models
@@ -16,13 +17,19 @@ namespace Requirements_Management_Infrastructure.Data.Models
 
         public string? PathToImage { get; set; }
 
-        // Owner - User - FK
+        [Required]
+        public int OwnerId { get; set; }
 
-        // Participants - User[]
+        [ForeignKey(nameof(OwnerId))]
+        public User Owner { get; set; } = null!;
 
-        // IRequirements[]
+        public ICollection<ProjectUser> Participants { get; set; } = new List<ProjectUser>();
+
+        // Many to many, since a project intakes multiple requirements and a requirement could be shared among projects
+        public ICollection<ProjectRequirement> ProjectRequirements { get; set; } = new List<ProjectRequirement>();
 
         // UserStories[] - no! it is a many to many, since a user story can be reused within many projects. Optional detaching
+        public ICollection<ProjectUserStory> ProjectUserStories { get; set; } = new List<ProjectUserStory>();
 
         public ICollection<ProjectComment> Comments { get; set; } = new List<ProjectComment>();
 
