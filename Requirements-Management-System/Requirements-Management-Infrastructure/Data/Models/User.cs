@@ -1,5 +1,5 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
-using Requirements_Management_Infrastructure.Data.Models.Requirements;
+using Requirements_Management_Infrastructure.Data.Models.MappingTables;
 using System.ComponentModel.DataAnnotations;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
 
@@ -22,11 +22,11 @@ namespace Requirements_Management_Infrastructure.Data.Models
         public ICollection<ProjectComment> CommentsUnderProjects { get; set; } = new List<ProjectComment>();
 
 
-        public ICollection<UserStory> UserStories { get; set; } = new List<UserStory>();
+        public ICollection<UserStoryUser> UserUserStories { get; set; } = new List<UserStoryUser>();
         public ICollection<UserStoryComment> CommentsUnderUserStories { get; set; } = new List<UserStoryComment>();
 
 
-        public ICollection<Requirement> Requirements { get; set; } = new List<Requirement>();
+        public ICollection<RequirementUser> UserRequirements { get; set; } = new List<RequirementUser>();
         public ICollection<RequirementComment> CommentsUnderRequirements { get; set; } = new List<RequirementComment>();
     }
 }

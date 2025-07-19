@@ -1,4 +1,5 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
+using Requirements_Management_Infrastructure.Data.Models.MappingTables;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
@@ -24,12 +25,8 @@ namespace Requirements_Management_Infrastructure.Data.Models
         [MaxLength(USERSTORY_WISH_REASON_MAX_LENGTH)]
         public string Reason { get; set; } = null!;
 
-        [Required]
-        public int AuthorId { get; set; }
-
-        [ForeignKey(nameof(AuthorId))]
-        public User Author { get; set; } = null!;
-
+        // Since a user story can be written by multiple people, the relationship should be many-many
+        public ICollection<UserStoryUser> UserStoryAuthors { get; set; } = new List<UserStoryUser>();
 
         // NB - it is not of an interface, since we use TPT - we can go concrete here
         public ICollection<UserStoryComment> Comments { get; set; } = new List<UserStoryComment>();

@@ -1,4 +1,5 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
+using Requirements_Management_Infrastructure.Data.Models.MappingTables;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;

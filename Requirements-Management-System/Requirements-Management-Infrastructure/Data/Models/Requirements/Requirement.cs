@@ -1,4 +1,5 @@
 ﻿using Requirements_Management_Infrastructure.Data.Models.Comments;
+using Requirements_Management_Infrastructure.Data.Models.MappingTables;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Requirements_Management_Infrastructure.Data.DataConstraints;
@@ -16,11 +17,8 @@ namespace Requirements_Management_Infrastructure.Data.Models.Requirements
         [Required]
         public string Description { get; set; } = null!;
 
-        [Required]
-        public int AuthorId { get; set; }
-
-        [ForeignKey(nameof(AuthorId))]
-        public User Author { get; set; } = null!;
+        // Since a requirement can be written by multiple people, the relationship should be many-many
+        public ICollection<RequirementUser> RequirementAuthors { get; set; } = new List<RequirementUser>();
 
         public ICollection<RequirementComment> Comments { get; set; } = new List<RequirementComment>();
 

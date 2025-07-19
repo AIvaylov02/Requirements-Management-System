@@ -22,8 +22,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Models\Requirements\" />
-  </ItemGroup>
-
 </Project>

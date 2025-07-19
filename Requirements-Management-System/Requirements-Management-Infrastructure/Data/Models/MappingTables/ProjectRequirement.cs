@@ -2,7 +2,7 @@
 using Requirements_Management_Infrastructure.Data.Models.Requirements;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Requirements_Management_Infrastructure.Data.Models
+namespace Requirements_Management_Infrastructure.Data.Models.MappingTables
 {
     public class ProjectRequirement
     {
